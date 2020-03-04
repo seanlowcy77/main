@@ -13,6 +13,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
+import seedu.address.model.person.Remark;
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
@@ -79,6 +80,9 @@ public class ParserUtil {
         }
         return new Email(trimmedEmail);
     }
+
+
+
 
     /**
      * Parses a {@code String tag} into a {@code Tag}.
