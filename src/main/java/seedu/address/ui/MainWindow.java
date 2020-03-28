@@ -242,4 +242,7 @@ public class MainWindow extends UiPart<Stage> {
         listPanelPlaceholder.getChildren().add(listPanel.getRoot());
     }
 
+
+
+
 }

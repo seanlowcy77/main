@@ -38,13 +38,16 @@ public class ViewCommand extends Command {
 
         Displayable itemToView = lastShownList.get(index.getZeroBased());
 
+
+        /*
         String itemToViewString = itemToView.toString();
 
         SameItemPredicate sameItemPredicate = new SameItemPredicate(Arrays.asList(itemToViewString.trim()));
 
         model.setFocusedDisplayable(itemToView);
         model.updateFilteredDisplayableList(sameItemPredicate);
+        */
 
-        return new CommandResult(MESSAGE_VIEW_SUCCESS);
+        return new CommandResult(MESSAGE_VIEW_SUCCESS, false, false, false, false, true);
     }
 }

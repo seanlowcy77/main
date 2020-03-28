@@ -91,4 +91,9 @@ public class Deadline {
         return otherDeadline.getName().equals(getName())
                 && otherDeadline.isCompleted() == isCompleted();
     }
+
+    @Override
+    public String toString() {
+        return this.name.toString();
+    }
 }

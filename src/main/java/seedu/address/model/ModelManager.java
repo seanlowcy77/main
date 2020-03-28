@@ -91,6 +91,7 @@ public class ModelManager implements Model {
 
     //=========== Modulo ================================================================================
 
+    public void setView
     @Override
     public void setCalendar(ReadOnlyCalendar calendar) {
         this.calendar.resetData(calendar);

@@ -32,15 +32,21 @@ public class CommandResult {
     private final boolean showsModuleList;
 
     /**
+     * Application should show the right panel.
+     */
+    private final boolean showsRightPanel;
+
+    /**
      * Constructs a {@code CommandResult} with the specified fields.
      */
     public CommandResult(String feedbackToUser,
-                         boolean showHelp, boolean exit, boolean showsEventList, boolean showsModuleList) {
+                         boolean showHelp, boolean exit, boolean showsEventList, boolean showsModuleList, boolean showsRightPanel) {
         this.feedbackToUser = requireNonNull(feedbackToUser);
         this.showHelp = showHelp;
         this.exit = exit;
         this.showsEventList = showsEventList;
         this.showsModuleList = showsModuleList;
+        this.showsRightPanel = showsRightPanel;
     }
 
     /**
@@ -48,7 +54,7 @@ public class CommandResult {
      * and other fields set to their default value.
      */
     public CommandResult(String feedbackToUser) {
-        this(feedbackToUser, false, false, false, false);
+        this(feedbackToUser, false, false, false, false, false);
     }
 
     public String getFeedbackToUser() {

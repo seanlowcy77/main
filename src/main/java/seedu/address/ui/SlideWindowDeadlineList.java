@@ -48,6 +48,7 @@ public class SlideWindowDeadlineList extends UiPart<Region> {
      * Custom {@code ListCell} that displays the graphics of a {@code event} using a {@code eventCard}.
      */
     static class ListViewCell extends ListCell<Displayable> {
+        int index = 0;
         @Override
         protected void updateItem(Displayable listItem, boolean empty) {
             super.updateItem(listItem, empty);
@@ -56,12 +57,12 @@ public class SlideWindowDeadlineList extends UiPart<Region> {
                 setText(null);
             } else if (listItem instanceof Event) {
                 // Create a dummy deadline list to test for the slide window.
-                Deadline deadline = new Deadline(new Name("Read lecture 8 and do tutorial "),
-                        LocalDateTime.now().withNano(0), true);
-                setGraphic(new DeadlineCard(deadline, 0).getRoot());
-                // setGraphic(new EventCard((Event) listItem, getIndex() + 1).getRoot());
+                //Deadline deadline = new Deadline(new Name("Read lecture 8 and do tutorial "),
+                //        LocalDateTime.now().withNano(0), false);
+                // setGraphic(new EventCard((Event)listItem, index++).getRoot());
+                setGraphic(new EventCard((Event) listItem, getIndex() + 1).getRoot());
             } else if (listItem instanceof Module) {
-                setGraphic(new ModuleCard((Module) listItem, getIndex() + 1).getRoot());
+                setGraphic(new ModuleCard((Module)listItem, getIndex() + 1).getRoot());
             } else if (listItem instanceof Deadline) {
                 setGraphic(new DeadlineCard((Deadline) listItem, getIndex() + 1).getRoot());
             }
