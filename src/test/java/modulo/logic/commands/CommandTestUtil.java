@@ -22,6 +22,7 @@ import modulo.model.module.Module;
 public class CommandTestUtil<DESC_CS2103> {
 
     public static final String VALID_CODE_CS2103 = "CS2103";
+    public static final String VALID_CODE_CS2103_LOWER_CASE = "cs2103";
     public static final String VALID_CODE_CS2105 = "CS2105";
     public static final String VALID_NAME_CS2103 = "Software Engineering";
     public static final String VALID_NAME_CS2105 = "Introduction to Computer Networking";
@@ -43,6 +44,7 @@ public class CommandTestUtil<DESC_CS2103> {
     public static final String SEMESTER_DESC_CS2103 = " " + PREFIX_SEMESTER + VALID_SEMESTER_CS2103;
     public static final String SEMESTER_DESC_CS2105 = " " + PREFIX_SEMESTER + VALID_SEMESTER_CS2105;
 
+    public static final String INVALID_MODULE_CODE_CS2000 = "cs2000";
     public static final String INVALID_CODE_DESC = " " + PREFIX_MODULE + "CS210&"; // '&' not allowed in module code.
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME
             + "So###$$$$ftware"; // '#' and '$' not allowed in module code.
