@@ -10,7 +10,6 @@ import static modulo.testutil.event.TypicalEvents.LECTURE_1;
 import static modulo.testutil.event.TypicalEvents.TUTORIAL_1;
 import static modulo.testutil.event.TypicalEvents.TUTORIAL_2;
 import static modulo.testutil.event.TypicalEvents.TUTORIAL_3;
-
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -21,17 +20,16 @@ import modulo.model.Model;
 import modulo.model.ModelManager;
 import modulo.model.Name;
 import modulo.model.UserPrefs;
+import modulo.model.event.exceptions.DuplicateEventException;
 import modulo.testutil.module.TypicalModules;
 
 
 /**
- * Contains integration tests (interaction with the Model) and unit tests for
- * {@code DeleteCommand}.
+ * Contains integration tests (interaction with the Model) and unit tests for {@code DeleteCommand}.
  */
 public class AddDeadlineCommandTest {
 
     private Model model = new ModelManager(TypicalModules.getTypicalModulo(), new UserPrefs());
-
 
 
     @Test
@@ -90,8 +88,6 @@ public class AddDeadlineCommandTest {
     }
 
 
-
-
     @Test
     public void executeParentEventNotNull_modelContainsNoSuchEvent_throwsCommandException() {
         Model expectedModel = new ModelManager(model.getModulo(), model.getUserPrefs());
@@ -110,7 +106,11 @@ public class AddDeadlineCommandTest {
         AddDeadlineCommand addDeadlineCommand = new AddDeadlineCommand(new Name(VALID_NAME_DEADLINE_LECTURE_STANDARD),
                 LECTURE_1, false);
         Model expectedModel = new ModelManager(model.getModulo(), model.getUserPrefs());
-
+        try {
+            expectedModel.addEvent(LECTURE_1);
+        } catch (DuplicateEventException e) {
+            // Nothing
+        }
         assertCommandFailure(addDeadlineCommand, expectedModel, Messages.MESSAGE_DUPLICATE_DEADLINE);
     }
 
