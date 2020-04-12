@@ -20,7 +20,6 @@ import modulo.model.Model;
 import modulo.model.ModelManager;
 import modulo.model.Name;
 import modulo.model.UserPrefs;
-import modulo.model.event.exceptions.DuplicateEventException;
 import modulo.testutil.module.TypicalModules;
 
 
@@ -106,11 +105,6 @@ public class AddDeadlineCommandTest {
         AddDeadlineCommand addDeadlineCommand = new AddDeadlineCommand(new Name(VALID_NAME_DEADLINE_LECTURE_STANDARD),
                 LECTURE_1, false);
         Model expectedModel = new ModelManager(model.getModulo(), model.getUserPrefs());
-        try {
-            expectedModel.addEvent(LECTURE_1);
-        } catch (DuplicateEventException e) {
-            // Nothing
-        }
         assertCommandFailure(addDeadlineCommand, expectedModel, Messages.MESSAGE_DUPLICATE_DEADLINE);
     }
 
